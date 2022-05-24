@@ -1,48 +1,57 @@
+
+#todo: figure out how to split ui into functions. figure out how to build grids
+
+
 from life import *
 from tkinter import *
 from tkinter import ttk
 
-    
 
-cols = 10
-rows = 10
+life: Life   
+cols = 15
+rows = 15
 
-initial_grid = [[False for i in range(10)] for j in range(rows)]
-
-
-print(initial_grid)
-
-
-life = Life(cols, rows, initial_grid)
-
-
-
-life.create_next_grid()
-
-print(life.current_grid)
-
-
+initial_grid = [[False for i in range(cols)] for j in range(rows)]
 
 root = Tk()
 
+
+def start_game():
+    print("starting game")
+    root.destroy()
+    game_grid = Tk()
+    print(life.current_grid)
+
+    def SEND():
+        for x in range(cols):
+            for y in range(rows):
+                if life.current_grid[x][y] == True:
+                    btn = Button(game_grid, padx=25, pady=25, bg='yellow', command=lambda x=x, y=y: addToArray(x,y))
+                    btn.grid(row=x, column=y)
+                else:
+                    btn = Button(game_grid, padx=25, pady=25)
+                    btn.grid(row=x, column=y)
+        
+        life.create_next_grid()
+        game_grid.after(800, SEND)
+    SEND()
+
+
 #create grid
-for x in range(10):
-    for y in range(10):
+for x in range(cols):
+    for y in range(rows):
+        def demoColorChange(): btn.configure(bg="red", fg="yellow")
         def addToArray(x,y):
             initial_grid[x][y] = True
             print(x)
             print(y)
+            demoColorChange()
             print(initial_grid)
-        btn = Button(root, padx=20, pady=20, command=lambda x=x, y=y: addToArray(x,y))
+        btn = Button(root, padx=25, pady=25, activebackground='yellow', command=lambda x=x, y=y: addToArray(x,y))
         btn.grid(row=x, column=y)
-        
-            
 
+life = Life(cols, rows, initial_grid)
 
-#def SEND():
- #   print(initial_grid)
-#
- #   root.after(500, SEND)
-#
-#SEND()
+start_button = Button(root, padx=20, pady=20, text="go", command=start_game)
+start_button.grid(row=rows+1, column=cols+1)
 root.mainloop()

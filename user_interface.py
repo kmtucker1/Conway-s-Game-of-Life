@@ -17,10 +17,8 @@ root = Tk()
 
 
 def start_game():
-    print("starting game")
     root.destroy()
     game_grid = Tk()
-    print(life.current_grid)
 
     def SEND():
         for x in range(cols):
@@ -40,13 +38,8 @@ def start_game():
 #create grid
 for x in range(cols):
     for y in range(rows):
-        def demoColorChange(): btn.configure(bg="red", fg="yellow")
         def addToArray(x,y):
             initial_grid[x][y] = True
-            print(x)
-            print(y)
-            demoColorChange()
-            print(initial_grid)
         btn = Button(root, padx=25, pady=25, activebackground='yellow', command=lambda x=x, y=y: addToArray(x,y))
         btn.grid(row=x, column=y)
 

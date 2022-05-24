@@ -1,3 +1,4 @@
 # Conways-Game-of-Life
 
-![alt text](https://github.com/kmtucker1/Conways-Game-of-Life/tree/main/images/img1.jpeg?raw=true)
+![Alt text](https://github.com/kmtucker1/Conways-Game-of-Life/tree/main/images?raw=true "Title")
+

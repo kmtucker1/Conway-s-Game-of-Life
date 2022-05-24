@@ -83,7 +83,7 @@ class Life:
                 #else cell dies
                 else:
                     next_grid[i][j] = False
-       
+        #update grid
         self.current_grid = next_grid
         
 

@@ -1,19 +1,15 @@
 
-#todo: figure out how to split ui into functions. figure out how to build grids
-
-
 from life import *
 from tkinter import *
 from tkinter import ttk
 
-
+#declare global variables
 life: Life   
 cols = 15
 rows = 15
 
+#initial grid that will be used to create the instance of life.py
 initial_grid = [[False for i in range(cols)] for j in range(rows)]
-
-root = Tk()
 
 
 def start_game():
@@ -35,7 +31,8 @@ def start_game():
     SEND()
 
 
-#create grid
+#create initial grid and life object
+root = Tk()
 for x in range(cols):
     for y in range(rows):
         def addToArray(x,y):
